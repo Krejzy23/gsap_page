@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+
+/* ================= ROBOTO ================= */
+/* Roboto - Regular */
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/fonts/Roboto-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Roboto - SemiBold */
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/fonts/Roboto-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Roboto - Bold */
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/fonts/Roboto-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Roboto - Italic */
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/fonts/Roboto-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Roboto - Bold Italic */
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/fonts/Roboto-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ================= PLAYFAIR DISPLAY ================= */
+
+/* Playfair Display - Regular */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('./assets/fonts/PlayfairDisplay-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Playfair Display - SemiBold */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('./assets/fonts/PlayfairDisplay-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Playfair Display - Bold */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('./assets/fonts/PlayfairDisplay-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Playfair Display - Italic */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('./assets/fonts/PlayfairDisplay-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Playfair Display - Bold Italic */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('./assets/fonts/PlayfairDisplay-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ================= CORMORANT GARAMOND ================= */
+
+/* Cormorant Garamond - Regular */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('./assets/fonts/CormorantGaramond-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cormorant Garamond - SemiBold */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('./assets/fonts/CormorantGaramond-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cormorant Garamond - Bold */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('./assets/fonts/CormorantGaramond-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cormorant Garamond - Italic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('./assets/fonts/CormorantGaramond-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Cormorant Garamond - Bold Italic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('./assets/fonts/CormorantGaramond-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@layer utilities {
+  .font-roboto { font-family: 'Roboto', sans-serif; }
+  .font-playfair { font-family: 'Playfair Display', serif; }
+  .font-cormorant { font-family: 'Cormorant Garamond', serif; }
+}
+
+h1 {
+  will-change: transform;
+}
+
+.char{
+  display:inline-block;
+  will-change: transform;
+}
+
+.frame-label {
+  position: relative;
+  padding: 0.1rem 0.4rem;
+  display: inline-block;
+}
+
+/* levý horní roh */
+.frame-label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-top: 1px solid #e9e9e6;
+  border-left: 1px solid #e9e9e6;
+}
+
+/* pravý dolní roh */
+.frame-label::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  border-bottom: 1px solid #e9e9e6;
+  border-right: 1px solid #e9e9e6;
+}
+.magnetic-btn {
+  will-change: transform;
+}
+.magnetic-inner {
+  will-change: transform;
+}
+#spotlight{
+  --x: 50%;
+  --y: 50%;
+  background: radial-gradient(600px circle at var(--x) var(--y), rgba(255,255,255,0.18), transparent 60%);
+  mix-blend-mode: soft-light;
+  pointer-events:none;
+}
+/* scroll home*/
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* section home scroll */
+.panel {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
