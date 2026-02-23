@@ -79,9 +79,9 @@ export default function PostCard({ title, image, tags }) {
         {title}
       </h2>
 
-      <div className="aspect-video w-full max-w-sm overflow-hidden">
+      <div className="aspect-video w-full max-w-sm ">
         <div className="flex justify-end">
-          <img src={image} className="w-52 h-52 object-cover" alt={title} />
+          <img src={image} className="w-48 h-48 object-cover" alt={title} />
         </div>
       </div>
     </div>

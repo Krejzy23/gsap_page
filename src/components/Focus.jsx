@@ -63,7 +63,7 @@ const Focus = () => {
       <div className="flex gap-12 px-6 md:px-16 py-32">
         
         {/* LEFT TITLE */}
-        <h1 className="flex items-center focus-title font-roboto font-semibold uppercase tracking-wide leading-none text-[clamp(2.5rem,8vw,4rem)]">
+        <h1 className="flex items-center focus-title font-roboto font-semibold uppercase tracking-wide leading-none text-[clamp(1.5rem,4vw,2rem)] md:text-[clamp(2.5rem,8vw,4rem)]">
           focusing
         </h1>
 
@@ -76,7 +76,8 @@ const Focus = () => {
                   inline-block
                   uppercase
                   leading-none
-                  text-[clamp(2.5rem,8vw,4rem)]
+                  text-[clamp(1.5rem,4vw,2rem)]
+                  md:text-[clamp(2.5rem,8vw,4rem)]
                   ${item.style}
                 `}
               >

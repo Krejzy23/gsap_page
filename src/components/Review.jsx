@@ -31,13 +31,12 @@ export default function Review() {
       opacity: 0,
       y: 80,
       rotateX: -180,
-      transformOrigin: "100% 50% ease",
+      transformOrigin: "100% 50%,ease",
       ease: "back.out(1.7)",
       stagger: 0.025,
       scale: 4,
       autoAlpha: 0,
       duration: 0.8,
-      force3D:true,
     });
 
     return () => split.revert();
@@ -48,8 +47,7 @@ export default function Review() {
       <div
         className="
           grid gap-5 p-2
-          grid-cols-1
-          sm:grid-cols-2
+          grid-cols-2
           xl:auto-rows-fr
           lg:grid-cols-4
           max-w-9xl mx-auto py-10

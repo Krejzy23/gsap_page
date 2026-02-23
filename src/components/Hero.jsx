@@ -230,7 +230,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="scroll-indicator absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 text-xs tracking-[0.3em] flex flex-col items-center">
+        <div className="scroll-indicator absolute md:bottom-10 left-1/2 -translate-x-1/2 text-white/50 text-xs tracking-[0.3em] flex flex-col items-center">
           SCROLL
           <img src="/pictures/arrow.svg" alt="arrow" />
         </div>
