@@ -64,7 +64,7 @@ const TechList = () => {
   
     return (
       <section
-        className="wrapper h-full w-full bg-black z-10"
+        className="wrapper h-full max-w-7xl bg-black z-10"
         ref={component}
       >
         {category.map((item, index) => (

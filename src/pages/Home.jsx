@@ -6,13 +6,12 @@ import Hero from "../components/Hero";
 import Review from "../components/Review";
 import Bridge from "../components/Bridge";
 import Statement from "../components/Statement";
+import Focus from "../components/Focus";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-
   useEffect(() => {
-
     const panels = gsap.utils.toArray(".panel");
 
     panels.forEach((panel) => {
@@ -27,8 +26,7 @@ const Home = () => {
     // fix po načtení
     ScrollTrigger.refresh();
 
-    return () => ScrollTrigger.getAll().forEach(t => t.kill());
-
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
   }, []);
 
   return (
@@ -36,7 +34,6 @@ const Home = () => {
       <Navbar />
 
       <main className="relative">
-
         <section className="panel">
           <Hero />
         </section>
@@ -46,14 +43,16 @@ const Home = () => {
         </section>
 
         <section className="panel">
+          <Focus />
+        </section>
+
+        <section className="panel">
           <Statement />
         </section>
-        
-        <section className="panel">
+
+        {/* <section className="panel">
           <Bridge />
-        </section>
-
-
+        </section> */}
       </main>
     </>
   );

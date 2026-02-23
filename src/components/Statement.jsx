@@ -13,7 +13,7 @@ const Statement = () => {
 
   useGSAP(() => {
     gsap.to(line1.current, {
-      x: -100,
+      y: -50,
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top bottom",
@@ -23,7 +23,7 @@ const Statement = () => {
     });
 
     gsap.to(line2.current, {
-      x: 100,
+      y: 25,
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top bottom",
@@ -33,9 +33,7 @@ const Statement = () => {
     });
 
     gsap.to(line3.current, {
-      x: -100,
-      scale: 1.2,
-      opacity: 1,
+      y: 75,
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top bottom",
@@ -47,16 +45,16 @@ const Statement = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#0B0B0C] text-white flex justify-center items-center h-full w-full px-20 md:px-36"
+      className="bg-stone-200 text-black/80 flex justify-center items-center h-full w-full px-20 md:px-36"
     >
-      <div className="max-w-6xl p-10">
-        <h2 className="font-cormorant text-[9vw] leading-[0.9] tracking-tight">
-          <div ref={line1}>INTERACTION</div>
-          <div ref={line2}>THAT FEELS</div>
-          <div ref={line3} className="italic opacity-70">
-            ALIVE
-          </div>
-        </h2>
+      <div className="p-10">
+        <div className="font-playfair uppercase ">
+          <h4 ref={line1} className="text-xl lg:text-5xl tracking-widest opacity-70">"Design is not decoration.</h4>
+          <h3 ref={line2} className="text-2xl lg:text-6xl tracking-wider opacity-80">It is communication.</h3>
+          <h2 ref={line3} className="text-3xl lg:text-7xl tracking-tighter opacity-90">
+          Everything is intentional."
+          </h2>
+        </div>
       </div>
     </section>
   );

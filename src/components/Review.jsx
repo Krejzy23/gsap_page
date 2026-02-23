@@ -1,8 +1,48 @@
-import React from "react";
+import React, { useRef } from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+
 import PostCard from "./PostCard";
 import { posts } from "../constants/index";
 
+gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
+
 export default function Review() {
+  const titleRef = useRef();
+
+  useGSAP(() => {
+    if (!titleRef.current) return;
+
+    const split = new SplitText(titleRef.current, {
+      type: "chars",
+      charsClass: "char",
+    });
+
+    gsap.set(titleRef.current, { perspective: 500 });
+
+    gsap.from(split.chars, {
+      scrollTrigger: {
+        trigger: titleRef.current,
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      y: 80,
+      rotateX: -180,
+      transformOrigin: "100% 50% ease",
+      ease: "back.out(1.7)",
+      stagger: 0.025,
+      scale: 4,
+      autoAlpha: 0,
+      duration: 0.8,
+      force3D:true,
+    });
+
+    return () => split.revert();
+  }, []);
+
   return (
     <main className="bg-gray-300 h-full w-full">
       <div
@@ -26,16 +66,22 @@ export default function Review() {
             hover:text-white saturate-0 hover:saturate-100 
           "
         >
-          {/* Rohy pro velkou kartu */}
+          {/* Rohy */}
           <div className="pointer-events-none absolute -top-1 -left-1 h-5 w-5 border-l border-t border-black" />
           <div className="pointer-events-none absolute -top-1 -right-1 h-5 w-5 border-r border-t border-black" />
           <div className="pointer-events-none absolute -bottom-1 -left-1 h-5 w-5 border-l border-b border-black" />
           <div className="pointer-events-none absolute -bottom-1 -right-1 h-5 w-5 border-r border-b border-black" />
+
           <span className="text-xs md:text-sm">#LATEST</span>
 
-          <h2 className="text-xl md:text-6xl font-roboto font-bold leading-tight uppercase hover:text-white">
-            photographer portfolio & services // gallery
+          {/* 🔥 ANIMOVANÉ H2 */}
+          <h2
+            ref={titleRef}
+            className="text-xl md:text-5xl font-roboto font-bold leading-tight uppercase"
+          >
+            photographer<br/> portfolio & service //<br/> gallery
           </h2>
+
           <div className="flex justify-end">
             <img
               src="/pictures/photo.webp"
@@ -45,15 +91,19 @@ export default function Review() {
           </div>
         </div>
 
-        {/* Iterované malé karty s rámečky */}
+        {/* Malé karty */}
         {posts.map((post) => (
           <div key={post.id} className="relative">
-            {/* Rohy */}
             <div className="pointer-events-none absolute -top-1 -left-1 h-5 w-5 border-l border-t border-black" />
             <div className="pointer-events-none absolute -top-1 -right-1 h-5 w-5 border-r border-t border-black" />
             <div className="pointer-events-none absolute -bottom-1 -left-1 h-5 w-5 border-l border-b border-black" />
             <div className="pointer-events-none absolute -bottom-1 -right-1 h-5 w-5 border-r border-b border-black" />
-            <PostCard title={post.title} image={post.image} tags={post.tags} />
+
+            <PostCard
+              title={post.title}
+              image={post.image}
+              tags={post.tags}
+            />
           </div>
         ))}
       </div>
