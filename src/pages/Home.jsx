@@ -45,7 +45,7 @@ const Home = () => {
         <section className="panel">
           <Focus />
         </section>
-
+        
         <section className="panel">
           <Statement />
         </section>

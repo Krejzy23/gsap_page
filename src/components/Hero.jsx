@@ -170,7 +170,7 @@ const Hero = () => {
   return (
     <section
       ref={wrapperRef}
-      className="flex flex-col w-full min-h-screen items-center justify-center bg-black overflow-hidden relative mt-5"
+      className="flex flex-col w-full min-h-screen items-center justify-center bg-black overflow-hidden relative"
     >
       <video
         autoPlay
@@ -205,7 +205,7 @@ const Hero = () => {
       <div className="p-10 relative z-30">
         <h1
           ref={headingRef}
-          className="text-3xl md:text-5xl lg:text-8xl font-bold font-roboto text-white uppercase tracking-wider leading-[0.9]"
+          className="text-2xl md:text-5xl lg:text-8xl font-bold font-roboto text-white uppercase tracking-wide leading-[0.9]"
         >
           BUILT FOR INTERACTION.
         </h1>
@@ -214,16 +214,16 @@ const Hero = () => {
           <div className="flex flex-col">
             <p
               ref={subRef}
-              className="mt-6 max-w-xl text-base md:text-xl font-roboto text-white/80 tracking-wide opacity-0"
+              className="mt-6 max-w-xl text-md md:text-xl font-roboto text-white/80 tracking-wide opacity-0"
             >
               Interfaces, motion and digital experiences
             </p>
 
             <div
               ref={buttonRef}
-              className="mt-10 inline-block magnetic-wrapper"
+              className="mt-10 px-5 inline-block magnetic-wrapper"
             >
-              <button className="magnetic-inner relative overflow-hidden border border-white px-8 py-3 text-white/80 text-sm md:text-lg transition-colors duration-300 hover:bg-white hover:text-black">
+              <button className="magnetic-inner relative overflow-hidden border border-[#FC2207] px-4 py-2 md:px-8 md:py-3 text-white/80 text-sm md:text-lg transition-colors duration-300 hover:bg-[#FC2207] hover:text-black">
                 View work
               </button>
             </div>

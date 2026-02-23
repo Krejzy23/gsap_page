@@ -31,7 +31,7 @@ const TechList = () => {
   
     useGSAP(() => {
       let ctx = gsap.context(() => {
-        // create as many GSAP animations and/or ScrollTriggers here as you want...
+
         const tl = gsap.timeline({
           scrollTrigger: {
             start: "top bottom",
@@ -64,7 +64,7 @@ const TechList = () => {
   
     return (
       <section
-        className="wrapper h-full max-w-7xl bg-black z-10"
+        className="wrapper min-h-screen max-w-7xl bg-black z-10"
         ref={component}
       >
         {category.map((item, index) => (
