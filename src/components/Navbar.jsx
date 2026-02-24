@@ -28,7 +28,7 @@ const Navbar = () => {
           </div>
           {/* DESKTOP MENU */}
           <div className="flex px-10 md:flex-row flex-col justify-between">
-            <div className="flex items-center gap-6 uppercase text-white/80 text-sm font-roboto">
+            <div className="flex items-center gap-6 uppercase text-white/80 text-sm font-roboto tracking-widest">
               {navItems.map((item, index) => (
                 <Link
                   key={index}
@@ -42,7 +42,7 @@ const Navbar = () => {
                 </Link>
               ))}
             </div>
-            <div className="flex justify-end items-end text-white/70 uppercase text-xs">
+            <div className="flex justify-end items-end text-white/70 uppercase text-[0.5rem]">
               <h4>Last updated: 14.2. 2026 // by AK</h4>
             </div>
           </div>

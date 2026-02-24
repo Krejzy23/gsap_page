@@ -1,113 +1,45 @@
-import React, { useRef } from "react";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
-import { SplitText } from "gsap/SplitText";
+import React from "react";
+import { EffectComposer, ChromaticAberration } from "@react-three/postprocessing";
+import { BlendFunction } from "postprocessing";
+import { Canvas } from "@react-three/fiber";
+import AboutScene from "../components/AboutScene";
 
-gsap.registerPlugin(useGSAP, SplitText);
-
-const Hero = () => {
-  const container = useRef();
-  const revealRef = useRef();
-
-  useGSAP(
-    () => {
-      const heading = container.current;
-      const reveal = revealRef.current;
-
-      const split = SplitText.create(heading, { type: "chars" });
-
-      const tl = gsap.timeline();
-
-      gsap.set(heading, { y: "40vh" });
-      gsap.set(reveal, { filter: "blur(12px)", opacity: 0 });
-      tl.to(split.chars, {
-        scaleY: 6,
-        transformOrigin: "bottom center",
-        stagger: { each: 0.07, from: "random" },
-        ease: "power2.in",
-        duration: 0.8,
-      })
-        .to(split.chars, {
-          scaleY: 1,
-          stagger: { each: 0.04, from: "random" },
-          ease: "back.out(2)",
-          duration: 1.2,
-        })
-        .to(
-          heading,
-          {
-            y: "-25vh",
-            ease: "power3.out",
-            duration: 1,
-          },
-          "<0.2"
-        )
-
-        // NOVÁ VRSTVA SCÉNY
-        .fromTo(
-          reveal,
-          { y: "80vh" }, // start mimo scénu
-          {
-            y: "-15vh", // vysoko nad finální pozici
-            opacity: 1,
-            filter: "blur(0px)",
-            duration: 1,
-            scale: 0.6,
-            ease: "power3.out",
-          },
-          "-=0.4"
-        )
-        .to(reveal, {
-          y: "-5vh", // finální settle pozice (pořád výš)
-          duration: 0.6,
-          ease: "back.out(2)",
-          scale: 1,
-        });
-
-      return () => split.revert();
-    },
-    { scope: container }
-  );
-
+const About = () => {
   return (
-    <section className="h-screen flex flex-col items-center justify-center bg-black overflow-hidden relative">
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-50"
-      >
-        <source src="/video/bg-texture.mp4" type="video/mp4" />
-      </video>
-
-      <div className="absolute inset-0 bg-black/60" />
-      <div className="p-10">
-        <h1
-          ref={container}
-          className="text-3xl md:text-5xl lg:text-8xl font-bold font-roboto text-white uppercase tracking-wider"
+    <section className="relative w-full min-h-screen bg-[#050507] text-white overflow-hidden">
+      {/* CANVAS */}
+      <div className="absolute inset-0 z-0">
+        <Canvas
+          camera={{ position: [5, -10, 18], fov: 35 }}
+          gl={{ alpha: true, antialias: false, powerPreference: "high-performance" }}
+          dpr={[1, 1.5]}
         >
-          I DON'T BUILD WEBSITES.
-        </h1>
+          <AboutScene />
 
-        <div
-          ref={revealRef}
-          className="absolute bottom-20 tracking-wider translate-y-full "
-        >
-          <div className="flex flex-col">
-            <h2 className="text-white text-5xl md:text-6xl lg:text-8xl font-bold font-roboto">
-              I BUILD DIGITAL
-            </h2>
-            <div className="flex flex-row">
-              <img src="/pictures/curve-1.svg" alt="curve1" className="relative hidden top-7 left-5 lg:flex" />
-              <h2 className="text-white text-5xl md:text-6xl lg:text-8xl font-semibold font-cormorant px-20 md:px-2">EXPERIENCES.</h2>{" "}
-              <img src="/pictures/curve-2.svg" alt="curve2" className="relative hidden bottom-13 right-5 scale-x-[-1] rotate-180 lg:flex"/>
-            </div>
-          </div>
-        </div>
+          <EffectComposer>
+            <ChromaticAberration
+              blendFunction={BlendFunction.NORMAL}
+              offset={[0.0015, 0.0015]}
+            />
+          </EffectComposer>
+        </Canvas>
+      </div>
+
+      {/* glow overlay */}
+      <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_50%_40%,rgba(120,160,255,0.18),transparent_60%)]" />
+
+      {/* CONTENT */}
+      <div className="pointer-events-none relative z-20 flex flex-col items-center justify-center min-h-screen px-10 text-center">
+        <h1 className="text-6xl  tracking-widest mb-10">HELL0 Im Alex</h1>
+
+        <p className="max-w-xl text-white/70 leading-relaxed">
+          I design digital experiences focused on typography, motion and
+          interaction. I love building immersive interfaces using React, GSAP
+          and WebGL.
+        </p>
       </div>
     </section>
   );
 };
 
-export default Hero;
+export default About;
