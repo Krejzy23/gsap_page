@@ -5,6 +5,8 @@ import * as THREE from "three";
 export default function Developer({ ...props }) {
   const group = useRef();
   const [animation, setAnimation] = useState("idle");
+  const isSystemAnimation = useRef(false);
+  const modelReady = useRef(false);
 
   // GLTF model
   const { nodes, materials } = useGLTF(
@@ -15,58 +17,88 @@ export default function Developer({ ...props }) {
   const idleFBX = useFBX("/animations/Idle.fbx");
   const clapFBX = useFBX("/animations/Clapping.fbx");
   const dyingFBX = useFBX("/animations/Dying.fbx");
+  const waveFBX = useFBX("/animations/Waving.fbx");
 
   // nastav názvy, jen pokud existují
   if (idleFBX.animations[0]) idleFBX.animations[0].name = "idle";
   if (clapFBX.animations[0]) clapFBX.animations[0].name = "clap";
   if (dyingFBX.animations[0]) dyingFBX.animations[0].name = "dying";
+  if (waveFBX.animations[0]) waveFBX.animations[0].name = "wave";
 
   // jen platné animace
   const animations = [
     ...idleFBX.animations.filter(Boolean),
     ...clapFBX.animations.filter(Boolean),
     ...dyingFBX.animations.filter(Boolean),
+    ...waveFBX.animations.filter(Boolean),
   ];
 
   const { actions, mixer } = useAnimations(animations, group);
 
+  useEffect(() => {
+    if (!actions) return;
+  
+    const wave = actions["wave"];
+    if (!wave) return;
+  
+    modelReady.current = true;
+  }, [actions]);
+
+  useEffect(() => {
+    if (!modelReady.current) return;
+  
+    const timer = setTimeout(() => {
+      if (isDead.current) return;
+  
+      isSystemAnimation.current = true;
+      setAnimation("wave");
+    }, 3500);
+  
+    return () => clearTimeout(timer);
+  }, [actions]);
+
   // spouštění animace
   useEffect(() => {
     if (!actions || !animation) return;
-
-    // zastaví všechny ostatní animace
-    Object.values(actions).forEach((action) => {
-      if (action) action.stop();
-    });
-
+  
     const action = actions[animation];
     if (!action) return;
-
+  
     action.reset();
-
+  
     if (animation === "idle") {
       action.setLoop(THREE.LoopRepeat);
     } else {
       action.setLoop(THREE.LoopOnce);
       action.clampWhenFinished = true;
     }
+  
     action.play();
+  
   }, [animation, actions]);
 
   useEffect(() => {
     if (!mixer) return;
-
+  
     const onFinished = (e) => {
       const finished = e.action.getClip().name;
-
-      // clap se po dokončení vrací na idle
+  
+      // dying má absolutní prioritu (zůstane ležet)
+      if (finished === "dying") return;
+  
+      // ===== SYSTEM ANIMATION (auto wave) =====
+      if (finished === "wave" && isSystemAnimation.current) {
+        isSystemAnimation.current = false;
+        setAnimation("idle");
+        return;
+      }
+  
+      // ===== USER CLAP =====
       if (finished === "clap" && !isDead.current) {
         setAnimation("idle");
       }
-
-      // dying NIC nedělá — zůstane zamrzlý
     };
-
+  
     mixer.addEventListener("finished", onFinished);
     return () => mixer.removeEventListener("finished", onFinished);
   }, [mixer]);

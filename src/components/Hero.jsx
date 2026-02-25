@@ -85,19 +85,19 @@ const Hero = () => {
             ease: "back.out(2)",
             scale: 1,
           });
-          tl.fromTo(
-            ".scroll-indicator",
-            { opacity: 0, y: 0 },
-            {
-              opacity: 1,
-              y: 10,
-              repeat: -1,
-              yoyo: true,
-              duration: 1,
-              ease: "power1.inOut",
-            },
-            "+=0.5" // delay 2s po předchozích animacích
-          );
+        tl.fromTo(
+          ".scroll-indicator",
+          { opacity: 0, y: 0 },
+          {
+            opacity: 1,
+            y: 10,
+            repeat: -1,
+            yoyo: true,
+            duration: 1,
+            ease: "power1.inOut",
+          },
+          "+=0.5" // delay 2s po předchozích animacích
+        );
 
         // ----------------
         // MAGNETIC BUTTON
@@ -194,11 +194,7 @@ const Hero = () => {
               stitchTiles="stitch"
             />
           </filter>
-          <rect
-            width="100%"
-            height="100%"
-            filter="url(#noiseFilter)"
-          />
+          <rect width="100%" height="100%" filter="url(#noiseFilter)" />
         </svg>
       </div>
 

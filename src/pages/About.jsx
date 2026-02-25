@@ -4,6 +4,7 @@ import {
   EffectComposer,
   ChromaticAberration,
 } from "@react-three/postprocessing";
+import GlitchText from "../components/GlitchText";
 import { BlendFunction } from "postprocessing";
 import { Canvas } from "@react-three/fiber";
 import AboutScene from "../components/AboutScene";
@@ -39,16 +40,16 @@ const About = () => {
       {/* HERO TEXT */}
       <div className="relative z-20 pointer-events-none">
         <div className="pt-32 text-center px-6">
-          <h1 className="text-6xl tracking-widest uppercase mb-6">
-            Hello I'm Alex
-          </h1>
+          <GlitchText>
+          <span className="glitch-crt">Hello I'm Alex</span>
+          </GlitchText>
 
           <p className="max-w-2xl mx-auto text-xl text-white/70 leading-relaxed">
             Welcome to my cyberspace, where creativity and ideas know no limits.
           </p>
         </div>
 
-        <div className="mt-32 grid md:grid-cols-2 gap-20 items-center px-10 max-w-6xl mx-auto">
+        <div className="mt-20 grid md:grid-cols-2 gap-20 items-center px-10 max-w-6xl mx-auto">
           {/* MODEL */}
           <div className="h-125">
             <Canvas camera={{ position: [35, 7, 0], fov: 4 }} shadows>

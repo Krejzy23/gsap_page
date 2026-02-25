@@ -124,7 +124,7 @@ const Focus = () => {
               >
                 {item.text}
               </span>
-              <div className="absolute left-full ml-4 top-1/2 -translate-y-1/2 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-24"></div>
+              <div className="absolute left-full ml-4 top-1/2 -translate-y-1/2 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-48"></div>
             </li>
           ))}
         </ul>
