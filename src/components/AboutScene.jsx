@@ -105,8 +105,6 @@ export default function AboutScene() {
       <color attach="background" args={["#050507"]} />
 
       <directionalLight position={[10, 15, 10]} intensity={1.3} />
-
-      <directionalLight position={[8, 12, 8]} intensity={1.2} />
       <ambientLight intensity={0.35} />
 
       <mesh
@@ -119,7 +117,7 @@ export default function AboutScene() {
           color="#637284"
           roughness={0.25}
           metalness={0.7}
-          transmission={0.5}
+          // transmission={0.5}
           thickness={1.2}
           clearcoat={0.8}
           clearcoatRoughness={0.1}

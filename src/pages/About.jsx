@@ -1,21 +1,29 @@
 import React from "react";
-import { EffectComposer, ChromaticAberration } from "@react-three/postprocessing";
+import { useState } from "react";
+import {
+  EffectComposer,
+  ChromaticAberration,
+} from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
 import { Canvas } from "@react-three/fiber";
 import AboutScene from "../components/AboutScene";
+import Developer from "../components/AboutDeveloper";
 
 const About = () => {
   return (
     <section className="relative w-full min-h-screen bg-[#050507] text-white overflow-hidden">
-      {/* CANVAS */}
+      {/* BACKGROUND CANVAS */}
       <div className="absolute inset-0 z-0">
         <Canvas
           camera={{ position: [5, -10, 18], fov: 35 }}
-          gl={{ alpha: true, antialias: false, powerPreference: "high-performance" }}
+          gl={{
+            alpha: true,
+            antialias: false,
+            powerPreference: "high-performance",
+          }}
           dpr={[1, 1.5]}
         >
           <AboutScene />
-
           <EffectComposer>
             <ChromaticAberration
               blendFunction={BlendFunction.NORMAL}
@@ -25,18 +33,46 @@ const About = () => {
         </Canvas>
       </div>
 
-      {/* glow overlay */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_50%_40%,rgba(120,160,255,0.18),transparent_60%)]" />
+      {/* GLOW */}
+      <div className="absolute inset-0 z-10 pointer-events-none" />
 
-      {/* CONTENT */}
-      <div className="pointer-events-none relative z-20 flex flex-col items-center justify-center min-h-screen px-10 text-center">
-        <h1 className="text-6xl  tracking-widest mb-10">HELL0 Im Alex</h1>
+      {/* HERO TEXT */}
+      <div className="relative z-20 pointer-events-none">
+        <div className="pt-32 text-center px-6">
+          <h1 className="text-6xl tracking-widest uppercase mb-6">
+            Hello I'm Alex
+          </h1>
 
-        <p className="max-w-xl text-white/70 leading-relaxed">
-          I design digital experiences focused on typography, motion and
-          interaction. I love building immersive interfaces using React, GSAP
-          and WebGL.
-        </p>
+          <p className="max-w-2xl mx-auto text-xl text-white/70 leading-relaxed">
+            Welcome to my cyberspace, where creativity and ideas know no limits.
+          </p>
+        </div>
+
+        <div className="mt-32 grid md:grid-cols-2 gap-20 items-center px-10 max-w-6xl mx-auto">
+          {/* MODEL */}
+          <div className="h-125">
+            <Canvas camera={{ position: [35, 7, 0], fov: 4 }} shadows>
+              <ambientLight intensity={0.6} />
+              <directionalLight position={[10, 15, 10]} intensity={1.3} />
+              <pointLight position={[-12, 5, 10]} intensity={2} />
+              <Developer position={[-0.5, -1, 0]}/>
+            </Canvas>
+          </div>
+
+          {/* TEXT BLOCK */}
+          <div className="space-y-6">
+            <h2 className="text-3xl font-semibold">Creative Developer</h2>
+
+            <p className="text-white/70 leading-relaxed">
+              I build immersive digital experiences focused on motion,
+              typography and interactive systems using React, WebGL and GSAP.
+            </p>
+
+            <p className="text-white/50 leading-relaxed">
+              My work blends minimal design with complex visual systems.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

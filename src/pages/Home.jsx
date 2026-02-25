@@ -31,8 +31,6 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
-
       <main className="relative">
         <section className="panel">
           <Hero />

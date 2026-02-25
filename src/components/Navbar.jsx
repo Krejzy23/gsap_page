@@ -38,7 +38,7 @@ const Navbar = () => {
                 >
                   {item.label}
 
-                  <span className="pointer-events-none absolute left-0 -bottom-1 h-px w-0 bg-[#FC2207] transition-all duration-300 ease-out group-hover:w-full" />
+                  <span className="pointer-events-none absolute left-0 -bottom-0.5 h-px w-0 bg-[#FC2207] transition-all duration-300 ease-out group-hover:w-full" />
                 </Link>
               ))}
             </div>
