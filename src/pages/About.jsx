@@ -65,7 +65,7 @@ const About = () => {
             <h2 className="text-3xl font-semibold">Creative Developer</h2>
 
             <p className="text-white/70 leading-relaxed">
-              I build immersive digital experiences focused on motion,
+              I build digital experiences focused on motion,
               typography and interactive systems using React, WebGL and GSAP.
             </p>
 

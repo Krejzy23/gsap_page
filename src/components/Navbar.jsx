@@ -21,7 +21,7 @@ const Navbar = () => {
           {/* malé logo */}
           <div className="hidden md:flex font-roboto text-white tracking-widest text-sm select-none">
             <span className="text-red-500">AK</span>
-            <span className="text-white/70">_PROJECTS</span>
+            <span className="text-white/70">_PORTFOLIO</span>
           </div>
 
           {/* navigace */}

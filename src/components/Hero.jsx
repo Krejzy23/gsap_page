@@ -27,7 +27,7 @@ const Hero = () => {
         const tl = gsap.timeline();
 
         // initial states
-        gsap.set(heading, { y: "40vh" });
+        gsap.set(heading, { y: "20vh" });
         gsap.set(reveal, { filter: "blur(12px)", opacity: 0 });
 
         // TEXT INTRO
@@ -198,21 +198,21 @@ const Hero = () => {
         </svg>
       </div>
 
-      <div className="p-10 relative z-30">
+      <div className="mt-32 p-10 relative z-30">
         <h1
           ref={headingRef}
-          className="text-2xl md:text-5xl lg:text-8xl font-bold font-roboto text-white uppercase tracking-wide leading-[0.9]"
+          className="text-4xl md:text-7xl lg:text-9xl font-bold font-roboto text-white uppercase tracking-wide leading-[0.9]"
         >
-          BUILT FOR INTERACTION.
+          CODE <span className="text-white/90">IN</span> <span className="text-white/80">MOTION</span>
         </h1>
 
         <div ref={revealRef} className="flex tracking-wider">
           <div className="flex flex-col">
             <p
               ref={subRef}
-              className="mt-6 max-w-xl text-md md:text-xl font-roboto text-white/80 tracking-wide opacity-0"
+              className="mt-6 max-w-xl text-sm md:text-xl font-roboto text-white/80 tracking-wide opacity-0"
             >
-              Interfaces, motion and digital experiences
+              Crafting immersive digital experiences
             </p>
 
             <div
@@ -226,7 +226,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="scroll-indicator absolute md:bottom-10 left-1/2 -translate-x-1/2 text-white/50 text-xs tracking-[0.3em] flex flex-col items-center">
+        <div className="scroll-indicator absolute md:bottom-2 left-1/2 -translate-x-1/2 text-white/50 text-xs tracking-[0.3em] flex flex-col items-center">
           SCROLL
           <img src="/pictures/arrow.svg" alt="arrow" />
         </div>

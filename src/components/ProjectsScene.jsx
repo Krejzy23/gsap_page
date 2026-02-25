@@ -3,15 +3,9 @@ import { gsap } from "gsap";
 import { Observer } from "gsap/Observer";
 import { useGSAP } from "@gsap/react";
 import ProjectSlide from "./ProjectSlide";
+import { slidesData } from "../constants";
 
 gsap.registerPlugin(Observer, useGSAP);
-
-const slidesData = [
-  { title: "Restaurant Experience" },
-  { title: "Creative Studio" },
-  { title: "Tech Platform" },
-  { title: "Fashion Editorial" },
-];
 
 const ProjectsScene = () => {
   const container = useRef();
@@ -41,7 +35,7 @@ const ProjectsScene = () => {
         const currentContent = current.querySelector(".project-content");
         const nextContent = next.querySelector(".project-content");
 
-        // 🔹 reset z-index pro přehlednost
+        // reset z-index
         gsap.set(current, { zIndex: 10 });
         gsap.set(next, { yPercent: direction > 0 ? 100 : -100, zIndex: 20 });
 
@@ -53,7 +47,7 @@ const ProjectsScene = () => {
           },
         });
 
-        // pouze pohyb slidu a paralax pozadí/obsahu
+        // pohyb slidu a paralax pozadí/obsahu
         tl.to(current, { yPercent: direction > 0 ? -100 : 100 }, 0)
           .fromTo(next, { yPercent: direction > 0 ? 100 : -100 }, { yPercent: 0 }, 0)
           .fromTo(nextBg, { scale: 1.3 }, { scale: 1.1 }, 0)
@@ -84,8 +78,8 @@ const ProjectsScene = () => {
 
   return (
     <div ref={container} className="relative h-screen w-screen overflow-hidden">
-      {slidesData.map((slide, i) => (
-        <ProjectSlide key={i} title={slide.title} />
+      {slidesData.map((slide, index) => (
+        <ProjectSlide key={index} slide={slide} index={index} />
       ))}
     </div>
   );

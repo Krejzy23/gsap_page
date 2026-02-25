@@ -5,11 +5,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import PostCard from "./PostCard";
 import { posts } from "../constants/index";
+import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
 
 export default function Review() {
   const titleRef = useRef();
+  const navigate = useNavigate();
 
   useGSAP(() => {
     if (!titleRef.current) return;
@@ -76,10 +78,15 @@ export default function Review() {
             ref={titleRef}
             className="text-xl md:text-5xl font-roboto font-bold leading-tight uppercase"
           >
-            photographer<br/> portfolio & service //<br/> gallery
+            photographer
+            <br /> portfolio & service //
+            <br /> gallery
           </h2>
 
-          <div className="flex justify-end">
+          <div className="flex flex-row justify-between items-center">
+            <button className="border border-[#FC2207] px-6 py-3 uppercase tracking-widest text-sm hover:bg-[#FC2207] hover:text-black transition">
+              LIVE SITE
+            </button>
             <img
               src="/pictures/photo.webp"
               alt="photo picture"
@@ -89,18 +96,20 @@ export default function Review() {
         </div>
 
         {/* Malé karty */}
-        {posts.map((post) => (
-          <div key={post.id} className="relative">
+        {posts.map((post, index) => (
+          <div
+            key={post.id}
+            className="relative cursor-pointer"
+            onClick={() =>
+              navigate("/projects", { state: { slideIndex: index } })
+            }
+          >
             <div className="pointer-events-none absolute -top-1 -left-1 h-5 w-5 border-l border-t border-black" />
             <div className="pointer-events-none absolute -top-1 -right-1 h-5 w-5 border-r border-t border-[#FC2207]" />
             <div className="pointer-events-none absolute -bottom-1 -left-1 h-5 w-5 border-l border-b border-[#FC2207]" />
             <div className="pointer-events-none absolute -bottom-1 -right-1 h-5 w-5 border-r border-b border-black" />
 
-            <PostCard
-              title={post.title}
-              image={post.image}
-              tags={post.tags}
-            />
+            <PostCard title={post.title} image={post.image} tags={post.tags} />
           </div>
         ))}
       </div>

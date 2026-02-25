@@ -6,7 +6,7 @@ export const slidesData = [
     theme: "dark",
   },
   {
-    title: "Creative Studio",
+    title: "M.E.R.N Blog",
     img: "/pictures/photo.webp",
     align: "center",
     theme: "dark",
@@ -28,15 +28,15 @@ export const slidesData = [
 export const posts = [
   {
     id: 1,
-    title: "Restaurant page & contact form",
+    title: "Restaurant page",
     image: "/pictures/menu.webp",
-    tags: ["UI", "Design", "SaaS"],
+    tags: ["React", "Tailwind","GSAP", "RestAPIs"],
   },
   {
     id: 2,
-    title: "React komponent architektura",
-    image: "/pictures/bistro.webp",
-    tags: ["React", "Frontend"],
+    title: "M.E.R.N Blog",
+    image: "/pictures/mern.webp",
+    tags: ["React","Firebase","Tailwind"],
   },
   {
     id: 3,
