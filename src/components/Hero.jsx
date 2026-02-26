@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import MagneticButton from "./MagneticButton";
 import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(useGSAP, SplitText);
@@ -10,7 +11,6 @@ const Hero = () => {
   const headingRef = useRef();
   const revealRef = useRef();
   const subRef = useRef();
-  const buttonRef = useRef();
 
   useGSAP(
     () => {
@@ -100,42 +100,6 @@ const Hero = () => {
         );
 
         // ----------------
-        // MAGNETIC BUTTON
-        // ----------------
-        const btnWrapper = buttonRef.current;
-        const inner = btnWrapper.querySelector(".magnetic-inner");
-        const strength = 40;
-
-        const move = (e) => {
-          const rect = btnWrapper.getBoundingClientRect();
-
-          const relX = e.clientX - rect.left;
-          const relY = e.clientY - rect.top;
-
-          const moveX = (relX - rect.width / 2) / rect.width;
-          const moveY = (relY - rect.height / 2) / rect.height;
-
-          gsap.to(inner, {
-            x: moveX * strength,
-            y: moveY * strength,
-            duration: 0.35,
-            ease: "power3.out",
-          });
-        };
-
-        const leave = () => {
-          gsap.to(inner, {
-            x: 0,
-            y: 0,
-            duration: 0.7,
-            ease: "elastic.out(1, 0.4)",
-          });
-        };
-
-        btnWrapper.addEventListener("mousemove", move);
-        btnWrapper.addEventListener("mouseleave", leave);
-
-        // ----------------
         // SPOTLIGHT
         // ----------------
         const spotlight = document.getElementById("spotlight");
@@ -157,8 +121,6 @@ const Hero = () => {
 
         // CLEANUP (VERY IMPORTANT)
         return () => {
-          btnWrapper.removeEventListener("mousemove", move);
-          btnWrapper.removeEventListener("mouseleave", leave);
           wrapper.removeEventListener("mousemove", spotlightMove);
           split.revert();
         };
@@ -203,7 +165,8 @@ const Hero = () => {
           ref={headingRef}
           className="text-4xl md:text-7xl lg:text-9xl font-bold font-roboto text-white uppercase tracking-wide leading-[0.9]"
         >
-          CODE <span className="text-white/90">IN</span> <span className="text-white/80">MOTION</span>
+          CODE <span className="text-white/90">IN</span>{" "}
+          <span className="text-white/80">MOTION</span>
         </h1>
 
         <div ref={revealRef} className="flex tracking-wider">
@@ -215,13 +178,12 @@ const Hero = () => {
               Crafting immersive digital experiences
             </p>
 
-            <div
-              ref={buttonRef}
-              className="mt-10 px-5 inline-block magnetic-wrapper"
-            >
-              <button className="magnetic-inner relative overflow-hidden border border-[#FC2207] px-4 py-2 md:px-8 md:py-3 text-white/80 text-sm md:text-lg transition-colors duration-300 hover:bg-[#FC2207] hover:text-black">
-                View work
-              </button>
+            <div className="mt-10 px-5 inline-block">
+              <MagneticButton>
+                <button className="relative overflow-hidden border border-[#FC2207] px-4 py-2 md:px-8 md:py-3 text-white/80 text-sm md:text-lg transition-colors duration-300 hover:bg-[#FC2207] hover:text-black">
+                  View work
+                </button>
+              </MagneticButton>
             </div>
           </div>
         </div>

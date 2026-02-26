@@ -1,12 +1,13 @@
 export const slidesData = [
   {
-    title: "Restaurant Experience",
+    title: "Steakhouse Restaurant",
     subTitle:"A modern website for a family restaurant with an emphasis on clarity and a simple user experience, complemented by eye-catching animations.",
     img: "/pictures/steakhouse.webp",
     align: "left",
     theme: "dark",
     live: "https://steakhouse-gold.vercel.app/",
     git: "https://github.com/Krejzy23/steakhouse",
+    tech:["re.svg","vite.svg","javascript.svg","gsap.svg","tail.svg" ]
   },
   {
     title: "M.E.R.N. Blog",
@@ -16,6 +17,7 @@ export const slidesData = [
     theme: "dark",
     live: "https://m-e-r-n-blog.onrender.com/",
     git: "https://github.com/Krejzy23/M.E.R.N-blog",
+    tech:["re.svg","vite.svg","mongodb.svg","express.svg", "redux.svg", "nodejs.svg","gsap.svg", "tail.svg","fire.svg"]
   },
   {
     title: "Image AI",
@@ -25,6 +27,7 @@ export const slidesData = [
     theme: "dark",
     live: "https://image-ai-nu.vercel.app/",
     git: "https://github.com/Krejzy23/Image-Ai",
+    tech:["next.svg", "ts.svg", "clerk.svg", "mongodb.svg", "tail.svg"],
   },
   {
     title: "Personal Photograph",
@@ -34,6 +37,7 @@ export const slidesData = [
     theme: "image-heavy",
     live: "https://photographer-portfolio-nine.vercel.app/",
     git: "https://github.com/Krejzy23/Photographer_portfolio",
+    tech:["html.svg", "css.svg", "javascript.svg","jq.svg"],
   },
 ];
 

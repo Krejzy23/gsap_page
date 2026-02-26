@@ -44,8 +44,8 @@ const ProjectsScene = () => {
         const currentBg = current.querySelector(".project-bg");
         const nextBg = next.querySelector(".project-bg");
 
-        const currentContent = current.querySelector(".project-content");
-        const nextContent = next.querySelector(".project-content");
+        const currentContent = current.querySelectorAll(".project-content");
+        const nextContent = next.querySelectorAll(".project-content");
 
         // reset z-index
         gsap.set(current, { zIndex: 10 });
