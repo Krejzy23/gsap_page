@@ -18,13 +18,13 @@ export const slidesData = [
     git: "https://github.com/Krejzy23/M.E.R.N-blog",
   },
   {
-    title: "Tech Platform",
-    subTitle:"",
-    img: "/pictures/mern.webp",
+    title: "Image AI",
+    subTitle:"SaaS platform build for image processing.Offer secure payment integration by Stripe,multiple AI-powered features and user authentication handled by Clerk and database is connect to MongoDB",
+    img: "/pictures/imageAiProjects.webp",
     align: "right",
     theme: "dark",
-    live: "",
-    git: "",
+    live: "https://image-ai-nu.vercel.app/",
+    git: "https://github.com/Krejzy23/Image-Ai",
   },
   {
     title: "Personal Photograph",
@@ -52,9 +52,9 @@ export const posts = [
   },
   {
     id: 3,
-    title: "Grid layout triky",
-    image: "/pictures/brainwave.webp",
-    tags: ["CSS", "Layout"],
+    title: "IMAGE AI SAAS APP",
+    image: "/pictures/imageAI.webp",
+    tags: ["Next", "Clerk", "MongoDB", "Tailwind"],
   },
   {
     id: 4,
