@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useLocation } from "react-router-dom";
 import { gsap } from "gsap";
 import { Observer } from "gsap/Observer";
 import { useGSAP } from "@gsap/react";
@@ -8,8 +9,10 @@ import { slidesData } from "../constants";
 gsap.registerPlugin(Observer, useGSAP);
 
 const ProjectsScene = () => {
+  const location = useLocation();
   const container = useRef();
-  const currentIndex = useRef(0);
+  const startIndex = location.state?.slideIndex ?? 0;
+  const currentIndex = useRef(startIndex);
   const animating = useRef(false);
 
   useGSAP(
@@ -18,7 +21,16 @@ const ProjectsScene = () => {
 
       // start pozice: všechny slidy pod scénou kromě prvního
       gsap.set(slides, { yPercent: 100 });
-      gsap.set(slides[0], { yPercent: 0, zIndex: 20 });
+
+      slides.forEach((slide, i) => {
+        if (i === startIndex) {
+          gsap.set(slide, { yPercent: 0, zIndex: 20 });
+        } else if (i < startIndex) {
+          gsap.set(slide, { yPercent: -100 });
+        } else {
+          gsap.set(slide, { yPercent: 100 });
+        }
+      });
 
       const gotoSlide = (index, direction) => {
         if (animating.current) return;

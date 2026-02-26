@@ -1,27 +1,39 @@
 export const slidesData = [
   {
     title: "Restaurant Experience",
+    subTitle:"A modern website for a family restaurant with an emphasis on clarity and a simple user experience, complemented by eye-catching animations.",
     img: "/pictures/steakhouse.webp",
     align: "left",
     theme: "dark",
+    live: "https://steakhouse-gold.vercel.app/",
+    git: "https://github.com/Krejzy23/steakhouse",
   },
   {
-    title: "M.E.R.N Blog",
-    img: "/pictures/photo.webp",
+    title: "M.E.R.N. Blog",
+    subTitle:"My personal blog written in M.E.R.N. stack with Firebase login, full admin dashboard with an interesting neo cyber design.",
+    img: "/pictures/mernProjects.webp",
     align: "center",
     theme: "dark",
+    live: "https://m-e-r-n-blog.onrender.com/",
+    git: "https://github.com/Krejzy23/M.E.R.N-blog",
   },
   {
     title: "Tech Platform",
+    subTitle:"",
     img: "/pictures/mern.webp",
     align: "right",
     theme: "dark",
+    live: "",
+    git: "",
   },
   {
-    title: "Fashion Editorial",
-    img: "/pictures/fashion.jpg",
+    title: "Personal Photograph",
+    subTitle:"My very first responsive design photography portfolio project with a jQuery gallery and pop-up navigation bar.",
+    img: "/pictures/photoProjects.webp",
     align: "split",
     theme: "image-heavy",
+    live: "https://photographer-portfolio-nine.vercel.app/",
+    git: "https://github.com/Krejzy23/Photographer_portfolio",
   },
 ];
 
@@ -46,9 +58,9 @@ export const posts = [
   },
   {
     id: 4,
-    title: "Animace v Tailwindu",
-    image: "/pictures/task.webp",
-    tags: ["Animation", "UX"],
+    title: "Personal Portfolio",
+    image: "/pictures/photo1.webp",
+    tags: ["HTML5", "CSS3","jQuery"],
   },
 ];
 

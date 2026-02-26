@@ -78,14 +78,15 @@ export default function Review() {
             ref={titleRef}
             className="text-xl md:text-5xl font-roboto font-bold leading-tight uppercase"
           >
-            photographer
+            photo studio
             <br /> portfolio & service //
             <br /> gallery
           </h2>
 
-          <div className="flex flex-row justify-between items-center">
-            <button className="border border-[#FC2207] px-6 py-3 uppercase tracking-widest text-sm hover:bg-[#FC2207] hover:text-black transition">
-              LIVE SITE
+          <div className="flex flex-col md:flex-row md:justify-between items-center">
+            <button className="border border-[#FC2207] px-3 py-2 md:px-6 md:py-3 uppercase tracking-widest text-sm hover:bg-[#FC2207] hover:text-black transition">
+              <a href={"https://photo-sand.vercel.app/"}>LINK</a>
+              
             </button>
             <img
               src="/pictures/photo.webp"
