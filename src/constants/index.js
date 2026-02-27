@@ -11,7 +11,7 @@ export const slidesData = [
   },
   {
     title: "M.E.R.N. Blog",
-    subTitle:"My personal blog written in M.E.R.N. stack with Firebase login, full admin dashboard with an interesting neo cyber design.",
+    subTitle:"My personal blog written in M.E.R.N. stack with Firebase authentication, full admin dashboard with an interesting neo cyber design.",
     img: "/pictures/mernProjects.webp",
     align: "center",
     theme: "dark",
@@ -20,7 +20,7 @@ export const slidesData = [
     tech:["re.svg","vite.svg","mongodb.svg","express.svg", "redux.svg", "nodejs.svg","gsap.svg", "tail.svg","fire.svg"]
   },
   {
-    title: "Image AI",
+    title: "Image AI application",
     subTitle:"SaaS platform build for image processing.Offer secure payment integration by Stripe,multiple AI-powered features and user authentication handled by Clerk and database is connect to MongoDB",
     img: "/pictures/imageAiProjects.webp",
     align: "right",
@@ -72,7 +72,7 @@ export const navItems = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Projects", to: "/projects" },
-  { label: "Contacts", to: "/contact" },
+  { label: "Contact", to: "/contact" },
 
 
 ];

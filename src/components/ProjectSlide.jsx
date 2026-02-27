@@ -23,7 +23,7 @@ const ProjectSlide = ({ slide, index }) => {
 
       {/* CONTENT */}
       <div className="project-content flex flex-col items-center relative z-10 text-white max-w-5xl px-10 text-center">
-        <p className="uppercase tracking-[0.4em] text-white/40 text-xs mb-4">
+        <p className="uppercase tracking-widest text-white/40 text-xs md:text-lg mb-4">
           #Selected Project
         </p>
 
@@ -32,35 +32,31 @@ const ProjectSlide = ({ slide, index }) => {
         <p className="text-white/60 text-sm md:text-xl max-w-xl mb-8">{subTitle}</p>
         <div className="flex flex-row items-center justify-center gap-6">
           <MagneticButton>
-            <button className="border border-white/40 bg-white px-6 py-3 uppercase tracking-widest text-sm text-black transition cursor-pointer">
               <a
                 target="_blank"
                 href={live}
                 rel="noopener noreferrer"
-                className="flex flex-row items-center gap-1"
+                className="flex flex-row items-center gap-1 border border-white/40 bg-white px-4 py-3 uppercase tracking-widest text-sm text-black transition cursor-pointer"
               >
-                <img src="/icons/link.svg" alt="link" className="w-5 h-5" />
-                <span className="text-xs tracking-tight">Live Deploy</span>
+                <img src="/icons/link.svg" alt="link" className="w-4 h-4 md:w-6 md:h-6" />
+                <span className="text-xs md:text-sm font-semibold tracking-tight">Live Deploy</span>
               </a>
-            </button>
           </MagneticButton>
           <MagneticButton>
-            <button className="border border-white/40 bg-white px-6 py-3 uppercase tracking-widest text-sm text-black transition cursor-pointer">
               <a
                 target="_blank"
                 href={git}
                 rel="noopener noreferrer"
-                className="flex flex-row items-center gap-1"
+                className="flex flex-row items-center gap-1 border border-white/40 bg-white px-4 py-3 uppercase tracking-widest text-sm text-black transition cursor-pointer"
               >
-                <img className="w-5 h-5" src="/icons/github.svg" alt="github" />
-                <span className="text-xs tracking-tight">Repository</span>
+                <img className="w-4 h-4 md:w-6 md:h-6" src="/icons/github.svg" alt="github" />
+                <span className="text-xs md:text-sm font-semibold tracking-tight">Repository</span>
               </a>
-            </button>
           </MagneticButton>
         </div>
       </div>
-      <div className="project-content absolute right-20 bottom-20 text-white/50 text-2xl font-bold select-none">
-        <p className="text-base md:text-2xl font-semibold mb-2">Used Technology</p>
+      <div className="project-content absolute right-20 bottom-20 text-white/60 text-2xl font-bold select-none">
+        <p className="text-base md:text-2xl font-roboto mb-2">Used Technologies</p>
 
         <div className="grid grid-cols-5 gap-3 items-center">
           {tech.map((icon) => (
@@ -68,7 +64,7 @@ const ProjectSlide = ({ slide, index }) => {
               key={icon}
               src={`/icons/${icon}`}
               alt={icon.replace(".svg", "")}
-              className="w-5 h-5 md:w-8 md:h-8 opacity-80"
+              className="w-5 h-5 md:w-8 md:h-8 opacity-60 hover:opacity-100 hover:scale-110 transition duration-300"
             />
           ))}
         </div>

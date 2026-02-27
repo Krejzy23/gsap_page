@@ -163,10 +163,10 @@ const Hero = () => {
       <div className="mt-32 p-10 relative z-30">
         <h1
           ref={headingRef}
-          className="text-4xl md:text-7xl lg:text-9xl font-bold font-roboto text-white uppercase tracking-wide leading-[0.9]"
+          className="text-4xl md:text-7xl lg:text-9xl font-bold font-roboto text-white/70 uppercase tracking-wide leading-[0.9]"
         >
-          CODE <span className="text-white/90">IN</span>{" "}
-          <span className="text-white/80">MOTION</span>
+          CO<span className="text-white/80">DE</span> <span className="text-white/90">IN</span>{" "}
+          <span className="text-white/80">MOTI</span>ON
         </h1>
 
         <div ref={revealRef} className="flex tracking-wider">
@@ -180,7 +180,7 @@ const Hero = () => {
 
             <div className="mt-10 px-5 inline-block">
               <MagneticButton>
-                <button className="relative overflow-hidden border border-[#FC2207] px-4 py-2 md:px-8 md:py-3 text-white/80 text-sm md:text-lg transition-colors duration-300 hover:bg-[#FC2207] hover:text-black">
+                <button className="relative overflow-hidden font-semibold border-2 border-[#FC2207] px-4 py-2 md:px-8 md:py-3 text-[#FC2207] text-sm md:text-lg transition-colors duration-300 hover:bg-[#FC2207] hover:text-black">
                   View work
                 </button>
               </MagneticButton>
