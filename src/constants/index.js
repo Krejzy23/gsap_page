@@ -76,3 +76,31 @@ export const navItems = [
 
 
 ];
+
+export const footerSocials = [
+  {
+    label: "WhatsApp",
+    href: "https://wa.me/420777936810",
+    icon: "/icons/whatsapp.svg",
+  },
+  {
+    label: "Email",
+    href: "mailto:ales.krejzl@gmail.com",
+    icon: "/icons/mail.svg",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/Krejzy23",
+    icon: "/icons/github1.svg",
+  },
+  {
+    label: "Vercel",
+    href: "https://vercel.com/krejzy23s-projects",
+    icon: "/icons/vercel.svg",
+  },
+  {
+    label: "TryHackMe",
+    href: "https://tryhackme.com/p/AlKr",
+    icon: "/icons/tryhackme.svg",
+  },
+];

@@ -94,9 +94,9 @@ export default function Review() {
             />
           </div>
           <div className="flex flex-row items-center justify-end gap-2 mt-1">
-            <span className="text-sm">React</span>
-            <span className="text-sm">Tailwind CSS</span>
-            <span className="text-sm">GSAP</span>
+            <span className="text-xs">React</span>
+            <span className="text-xs">Tailwind</span>
+            <span className="text-xs">GSAP</span>
           </div>
         </div>
 

@@ -45,7 +45,7 @@ export default function DrawTitle() {
         preserveAspectRatio="xMidYMid meet"
         style={{
           width: "90vw",
-          maxWidth: "1100px",
+          maxWidth: "1200px",
           height: "auto",
           display: "block",
         }}

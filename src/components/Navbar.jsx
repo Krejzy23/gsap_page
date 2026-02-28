@@ -31,7 +31,12 @@ const Navbar = () => {
                 key={index}
                 to={item.to}
                 onClick={item.label === "Home" ? handleHomeClick : undefined}
-                className="nav-glitch relative text-white/70 hover:text-white transition-colors duration-150"
+                className={`nav-glitch relative transition-colors duration-150 w-fit text-sm md:text-base
+                ${
+                  location.pathname === item.to
+                    ? "text-white"
+                    : "text-white/50 hover:text-white"
+                }`}
                 data-text={item.label}
               >
                 {item.label}

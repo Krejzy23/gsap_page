@@ -66,7 +66,7 @@ export default function PostCard({ title, image, tags }) {
     >
       <div className="flex flex-wrap gap-1 justify-end">
         {tags?.map((tag, i) => (
-          <span key={i} className="text-xs px-1">
+          <span key={i} className="text-[0.5rem] md:text-sm px-1">
             {tag}
           </span>
         ))}
@@ -74,7 +74,7 @@ export default function PostCard({ title, image, tags }) {
 
       <h2
         ref={titleRef}
-        className="text-xl md:text-2xl font-roboto font-bold leading-tight uppercase mb-10"
+        className="text-base md:text-2xl font-roboto font-bold leading-tight uppercase mb-10"
       >
         {title}
       </h2>

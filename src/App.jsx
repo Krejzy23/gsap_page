@@ -4,6 +4,7 @@ import About from "./pages/About"
 import Projects from "./pages/Projects"
 import Navbar from "./components/Navbar";
 import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
 
         </Routes>
+    <Footer />
       </BrowserRouter>
     </>
   );

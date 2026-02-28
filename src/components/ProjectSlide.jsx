@@ -22,7 +22,7 @@ const ProjectSlide = ({ slide, index }) => {
       </span>
 
       {/* CONTENT */}
-      <div className="project-content flex flex-col items-center relative z-10 text-white max-w-5xl px-10 text-center">
+      <div className="project-content flex flex-col pb-44 md:pb-10 items-center relative z-10 text-white max-w-5xl px-10 text-center">
         <p className="uppercase tracking-widest text-white/40 text-xs md:text-lg mb-4">
           #Selected Project
         </p>
@@ -55,7 +55,7 @@ const ProjectSlide = ({ slide, index }) => {
           </MagneticButton>
         </div>
       </div>
-      <div className="project-content absolute right-20 bottom-20 text-white/60 text-2xl font-bold select-none">
+      <div className="project-content absolute right-10 bottom-30 md:right-20 md:bottom-20 text-white/60 text-2xl font-bold select-none">
         <p className="text-base md:text-2xl font-roboto mb-2">Used Technologies</p>
 
         <div className="grid grid-cols-5 gap-3 items-center">
