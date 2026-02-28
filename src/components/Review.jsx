@@ -67,7 +67,7 @@ export default function Review() {
         >
           {/* Rohy */}
           <div className="pointer-events-none absolute -top-1 -left-1 h-5 w-5 border-l border-t border-[#FC2207]" />
-          <div className="pointer-events-none absolute -top-1 -right-1 h-5 w-5 border-r border-t border-[#FC2207]" />
+          <div className="pointer-events-none absolute -top-1 -right-1 h-5 w-5 border-r-b border-t border-[#FC2207]" />
           <div className="pointer-events-none absolute -bottom-1 -left-1 h-5 w-5 border-l border-b border-[#FC2207]" />
           <div className="pointer-events-none absolute -bottom-1 -right-1 h-5 w-5 border-r border-b border-[#FC2207]" />
 
