@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Review from "../components/Review";
-import Bridge from "../components/Bridge";
 import Statement from "../components/Statement";
 import Focus from "../components/Focus";
 
@@ -12,21 +10,20 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   useEffect(() => {
-    const panels = gsap.utils.toArray(".panel");
-
-    panels.forEach((panel) => {
-      ScrollTrigger.create({
-        trigger: panel,
-        start: "top top",
-        pin: true,
-        pinSpacing: false,
+    const ctx = gsap.context(() => {
+      const panels = gsap.utils.toArray(".panel");
+  
+      panels.forEach((panel) => {
+        ScrollTrigger.create({
+          trigger: panel,
+          start: "top top",
+          pin: true,
+          pinSpacing: false,
+        });
       });
     });
-
-    // fix po načtení
-    ScrollTrigger.refresh();
-
-    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+  
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -44,9 +41,9 @@ const Home = () => {
           <Focus />
         </section>
         
-        <section className="panel">
-          <Statement />
-        </section>
+        <Statement />
+
+
 
         {/* <section className="panel">
           <Bridge />

@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-10 items-start">
             {/* COLUMN 1 — HEADER */}
             <div className="font-roboto tracking-widest select-none">
-              <p className="text-white/80 text-sm md:text-base uppercase mb-10 font-semibold">
+              <p className="text-white/80 text-sm md:text-base uppercase mb-10">
                 <span className="text-[#FC2207] text-lg">#</span>Get in touch
               </p>
               <p className="text-white text-lg">
@@ -30,7 +30,7 @@ const Footer = () => {
 
             {/* COLUMN 2 — NAV */}
             <nav className="flex flex-col px-5 gap-4 uppercase text-xs tracking-[0.25em] font-roboto">
-              <p className="text-white/80 text-sm md:text-base uppercase mb-2 font-semibold">
+              <p className="text-white/80 text-sm md:text-base uppercase mb-2">
                 <span className="text-[#FC2207] text-lg">#</span>Navigations
               </p>
               {navItems.map((item, index) => (
@@ -52,7 +52,7 @@ const Footer = () => {
 
             {/* COLUMN 3 — SOCIALS */}
             <div className="flex flex-col gap-4">
-              <p className="uppercase text-sm md:text-base tracking-[0.25em] text-white/80 font-roboto font-semibold">
+              <p className="uppercase text-sm md:text-base tracking-[0.25em] text-white/80">
                 <span className="text-[#FC2207] text-lg">#</span>Links
               </p>
 
@@ -77,7 +77,7 @@ const Footer = () => {
           </div>
 
           {/* COPYRIGHT */}
-          <div className="mt-10 pt-6 border-t border-white/5 text-center text-white/50 text-[10px] md:text-sm tracking-[0.3em] uppercase">
+          <div className="mt-10 pt-6 border-t border-white/10 text-center text-white/50 text-[10px] md:text-sm tracking-[0.3em] uppercase">
             © {new Date().getFullYear()}{" "}
             <span className="text-[#FC2207]">AK</span>
             <span className="text-white/80">_Portfolio</span> · All rights

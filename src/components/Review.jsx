@@ -21,7 +21,7 @@ export default function Review() {
       charsClass: "char",
     });
 
-    gsap.set(titleRef.current, { perspective: 500 });
+    gsap.set(titleRef.current, { perspective: 900 });
 
     gsap.from(split.chars, {
       scrollTrigger: {
