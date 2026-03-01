@@ -5,6 +5,7 @@ import Hero from "../components/Hero";
 import Review from "../components/Review";
 import Statement from "../components/Statement";
 import Focus from "../components/Focus";
+import FinalCTA from "../components/FinalCTA";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const panels = gsap.utils.toArray(".panel");
-  
+
       panels.forEach((panel) => {
         ScrollTrigger.create({
           trigger: panel,
@@ -22,7 +23,7 @@ const Home = () => {
         });
       });
     });
-  
+
     return () => ctx.revert();
   }, []);
 
@@ -40,14 +41,10 @@ const Home = () => {
         <section className="panel">
           <Focus />
         </section>
-        
+
         <Statement />
 
-
-
-        {/* <section className="panel">
-          <Bridge />
-        </section> */}
+        <FinalCTA />
       </main>
     </>
   );
