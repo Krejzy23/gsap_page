@@ -14,6 +14,8 @@ const ProjectsScene = () => {
   const startIndex = location.state?.slideIndex ?? 0;
   const currentIndex = useRef(startIndex);
   const animating = useRef(false);
+  const unlocked = useRef(false);
+  const observerRef = useRef();
 
   useGSAP(
     () => {
@@ -34,6 +36,16 @@ const ProjectsScene = () => {
 
       const gotoSlide = (index, direction) => {
         if (animating.current) return;
+
+        // 🔓 exit to footer
+        if (index === slides.length) {
+          unlocked.current = true;
+          observerRef.current.disable();
+          container.current.style.height = "auto";
+          container.current.style.overflow = "visible";
+          return;
+        }
+
         if (index < 0 || index >= slides.length) return;
 
         animating.current = true;
@@ -82,28 +94,17 @@ const ProjectsScene = () => {
           );
       };
 
-      const observer = Observer.create({
+      observerRef.current = Observer.create({
         target: container.current,
         type: "wheel,touch,pointer",
         wheelSpeed: -1,
         tolerance: 10,
-
-        preventDefault: (self) => {
-          if (currentIndex.current === slides.length - 1 && self.deltaY > 0) {
-            return false;
-          }
-          if (currentIndex.current === 0 && self.deltaY < 0) {
-            return false;
-          }
-
-          return true;
-        },
-
+        preventDefault: true,
         onDown: () => gotoSlide(currentIndex.current - 1, -1),
         onUp: () => gotoSlide(currentIndex.current + 1, 1),
       });
 
-      return () => observer.kill();
+      return () => observerRef.current.kill();
     },
     { scope: container }
   );
