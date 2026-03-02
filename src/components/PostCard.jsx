@@ -68,7 +68,7 @@ export default function PostCard({ title, image, tags, slideIndex,navigate}) {
       <div className="flex flex-row justify-between items-center">
         <h2
           ref={titleRef}
-          className="text-base md:text-2xl font-roboto font-bold leading-tight uppercase mb-2"
+          className="text-lg md:text-2xl font-roboto font-bold leading-tight uppercase mb-2"
         >
           {title}
         </h2>
@@ -76,7 +76,7 @@ export default function PostCard({ title, image, tags, slideIndex,navigate}) {
 
         <button
           onClick={() => navigate("/projects", { state: { slideIndex } })}
-          className="border border-[#FC2207] px-2 py-1 md:px-6 md:py-3 uppercase tracking-widest text-xs hover:bg-[#FC2207] hover:text-black transition cursor-pointer"
+          className="border border-[#FC2207] px-2 py-1 md:px-4 md:py-2 uppercase tracking-widest text-xs hover:bg-[#FC2207] hover:text-black transition cursor-pointer"
         >
           LINK
         </button>
