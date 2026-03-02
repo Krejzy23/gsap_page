@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import {
   EffectComposer,
   ChromaticAberration,
@@ -41,7 +40,7 @@ const About = () => {
       <div className="relative z-20 pointer-events-none">
         <div className="pt-32 text-center px-6">
           <GlitchText>
-          <span className="glitch-crt">Hello I'm Alex</span>
+            <span className="glitch-crt">Hello I'm Alex</span>
           </GlitchText>
 
           <p className="max-w-2xl mx-auto text-xl text-white/70 leading-relaxed">
@@ -56,7 +55,7 @@ const About = () => {
               <ambientLight intensity={0.6} />
               <directionalLight position={[10, 15, 10]} intensity={1.3} />
               <pointLight position={[-12, 5, 10]} intensity={2} />
-              <Developer position={[-0.5, -1, 0]}/>
+              <Developer position={[-0.5, -1, 0]} />
             </Canvas>
           </div>
 
@@ -65,12 +64,15 @@ const About = () => {
             <h2 className="text-3xl font-semibold">Creative Developer</h2>
 
             <p className="text-white/70 leading-relaxed">
-              I build digital experiences focused on motion,
-              typography and interactive systems using React, WebGL and GSAP.
+              I build digital experiences driven by motion, typography and
+              interactive systems, primarily using React, WebGL and GSAP.
             </p>
 
             <p className="text-white/50 leading-relaxed">
-              My work blends minimal design with complex visual systems.
+              My work blends minimal design with complex visual structures. I
+              focus on rhythm, clarity and intentional interaction — choosing
+              the right technology is part of the design process, not the goal
+              itself.
             </p>
           </div>
         </div>

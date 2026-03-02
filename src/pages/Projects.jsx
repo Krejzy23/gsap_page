@@ -3,11 +3,9 @@ import ProjectsScene from "../components/ProjectsScene";
 
 const Projects = () => {
   return (
-    <main className="h-screen w-screen bg-black overflow-hidden">
+    <main className="relative w-full bg-black">
       <div className="flex flex-col items-center justify-center gap-2">
-        <div className="border-2 border-white py-10">
-          <ProjectsScene />
-        </div>
+        <ProjectsScene />
       </div>
     </main>
   );
