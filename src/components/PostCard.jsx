@@ -4,7 +4,7 @@ import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
 gsap.registerPlugin(ScrambleTextPlugin);
 
-export default function PostCard({ title, image, tags }) {
+export default function PostCard({ title, image, tags, slideIndex,navigate}) {
   const cardRef = useRef(null);
   const titleRef = useRef(null);
 
@@ -17,7 +17,6 @@ export default function PostCard({ title, image, tags }) {
 
     const enter = () => {
       gsap.killTweensOf(el);
-
       gsap.to(el, {
         duration: 0.8,
         scrambleText: {
@@ -32,8 +31,6 @@ export default function PostCard({ title, image, tags }) {
 
     const leave = () => {
       gsap.killTweensOf(el);
-
-      // malý “unscramble flicker” při odjezdu
       gsap.to(el, {
         duration: 0.4,
         scrambleText: {
@@ -56,13 +53,9 @@ export default function PostCard({ title, image, tags }) {
   return (
     <div
       ref={cardRef}
-      className="
-        bg-gray-200 p-3 shadow-lg
-        flex flex-col gap-1
-        hover:shadow-2xl
+      className="bg-gray-200 p-3 shadow-lg flex flex-col gap-1 hover:shadow-2xl
         transition duration-300 hover:bg-black
-        h-full hover:text-white saturate-0 hover:saturate-100
-      "
+        h-full hover:text-white saturate-0 hover:saturate-100"
     >
       <div className="flex flex-wrap gap-1 justify-end">
         {tags?.map((tag, i) => (
@@ -72,14 +65,24 @@ export default function PostCard({ title, image, tags }) {
         ))}
       </div>
 
-      <h2
-        ref={titleRef}
-        className="text-base md:text-2xl font-roboto font-bold leading-tight uppercase mb-10"
-      >
-        {title}
-      </h2>
+      <div className="flex flex-row justify-between items-center">
+        <h2
+          ref={titleRef}
+          className="text-base md:text-2xl font-roboto font-bold leading-tight uppercase mb-2"
+        >
+          {title}
+        </h2>
 
-      <div className="aspect-video w-full max-w-sm ">
+
+        <button
+          onClick={() => navigate("/projects", { state: { slideIndex } })}
+          className="border border-[#FC2207] px-2 py-1 md:px-6 md:py-3 uppercase tracking-widest text-xs hover:bg-[#FC2207] hover:text-black transition cursor-pointer"
+        >
+          LINK
+        </button>
+      </div>
+
+      <div className="aspect-video w-full max-w-sm">
         <div className="flex justify-end">
           <img src={image} className="w-48 h-48 object-cover" alt={title} />
         </div>

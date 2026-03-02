@@ -29,7 +29,12 @@ const Contact = () => {
         </p>
 
         <div className="mt-16">
-          <button className="relative flex justify-center overflow-hidden border border-[#FC2207] md:px-10 px-6 py-4 uppercase tracking-widest text-white group hover:scale-[1.03] transition-transform">
+          <button
+            onClick={() =>
+              (window.location.href = "mailto:ales.krejzl@gmail.com")
+            }
+            className="relative flex justify-center overflow-hidden border border-[#FC2207] md:px-10 px-6 py-4 uppercase tracking-widest text-white group hover:scale-[1.03] transition-transform cursor-pointer"
+          >
             <span className="relative z-10 group-hover:text-black transition text-white text-xs md:text-base">
               Send message
             </span>

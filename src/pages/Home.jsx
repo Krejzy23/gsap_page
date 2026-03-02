@@ -1,4 +1,6 @@
+// Home.jsx
 import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Hero from "../components/Hero";
@@ -10,7 +12,12 @@ import FinalCTA from "../components/FinalCTA";
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
+  const location = useLocation();
+
   useEffect(() => {
+    // Pokud jsme přišli z jiné stránky → scroll na top
+    window.scrollTo({ top: 0, behavior: "auto" });
+
     const ctx = gsap.context(() => {
       const panels = gsap.utils.toArray(".panel");
 
@@ -25,28 +32,25 @@ const Home = () => {
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [location.pathname]);
 
   return (
-    <>
-      <main className="relative">
-        <section className="panel">
-          <Hero />
-        </section>
+    <main className="relative">
+      <section className="panel">
+        <Hero />
+      </section>
 
-        <section className="panel">
-          <Review />
-        </section>
+      <section className="panel">
+        <Review />
+      </section>
 
-        <section className="panel">
-          <Focus />
-        </section>
+      <section className="panel">
+        <Focus />
+      </section>
 
-        <Statement />
-
-        <FinalCTA />
-      </main>
-    </>
+      <Statement />
+      <FinalCTA />
+    </main>
   );
 };
 

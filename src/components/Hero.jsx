@@ -181,7 +181,7 @@ const Hero = () => {
 
             <Link to="/about" className="mt-10 px-5 inline-block">
               <MagneticButton>
-                <button className="relative overflow-hidden font-semibold border-2 border-[#FC2207] px-4 py-2 md:px-8 md:py-3 text-[#FC2207] text-sm md:text-lg transition-colors duration-300 hover:bg-[#FC2207] hover:text-black">
+                <button className="relative overflow-hidden font-semibold border-2 border-[#FC2207] px-4 py-2 md:px-8 md:py-3 text-[#FC2207] text-sm md:text-lg transition-colors duration-300 hover:bg-[#FC2207] hover:text-black cursor-pointer">
                   About Me
                 </button>
               </MagneticButton>

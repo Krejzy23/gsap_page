@@ -14,8 +14,6 @@ const ProjectsScene = () => {
   const startIndex = location.state?.slideIndex ?? 0;
   const currentIndex = useRef(startIndex);
   const animating = useRef(false);
-  const unlocked = useRef(false);
-  const observerRef = useRef();
 
   useGSAP(
     () => {
@@ -36,16 +34,6 @@ const ProjectsScene = () => {
 
       const gotoSlide = (index, direction) => {
         if (animating.current) return;
-
-        // 🔓 exit to footer
-        if (index === slides.length) {
-          unlocked.current = true;
-          observerRef.current.disable();
-          container.current.style.height = "auto";
-          container.current.style.overflow = "visible";
-          return;
-        }
-
         if (index < 0 || index >= slides.length) return;
 
         animating.current = true;
@@ -73,12 +61,7 @@ const ProjectsScene = () => {
 
         // pohyb slidu a paralax pozadí/obsahu
         tl.to(current, { yPercent: direction > 0 ? -100 : 100 }, 0)
-          .fromTo(
-            next,
-            { yPercent: direction > 0 ? 100 : -100 },
-            { yPercent: 0 },
-            0
-          )
+          .fromTo(next, { yPercent: direction > 0 ? 100 : -100 }, { yPercent: 0 }, 0)
           .fromTo(nextBg, { scale: 1.3 }, { scale: 1.1 }, 0)
           .to(currentBg, { scale: 1.4 }, 0)
           .fromTo(
@@ -87,14 +70,10 @@ const ProjectsScene = () => {
             { y: 0, opacity: 1, duration: 0.8 },
             0.2
           )
-          .to(
-            currentContent,
-            { y: -60 * direction, opacity: 0, duration: 0.6 },
-            0
-          );
+          .to(currentContent, { y: -60 * direction, opacity: 0, duration: 0.6 }, 0);
       };
 
-      observerRef.current = Observer.create({
+      const observer = Observer.create({
         target: container.current,
         type: "wheel,touch,pointer",
         wheelSpeed: -1,
@@ -104,7 +83,7 @@ const ProjectsScene = () => {
         onUp: () => gotoSlide(currentIndex.current + 1, 1),
       });
 
-      return () => observerRef.current.kill();
+      return () => observer.kill();
     },
     { scope: container }
   );

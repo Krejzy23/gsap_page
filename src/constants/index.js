@@ -56,13 +56,13 @@ export const posts = [
   },
   {
     id: 3,
-    title: "IMAGE AI SAAS APP",
+    title: "IMAGE AI SAAS ",
     image: "/pictures/imageAI.webp",
     tags: ["Next", "Clerk", "MongoDB", "Tailwind"],
   },
   {
     id: 4,
-    title: "Personal Portfolio",
+    title: "Personal Page",
     image: "/pictures/photo1.webp",
     tags: ["HTML5", "CSS3","jQuery"],
   },
