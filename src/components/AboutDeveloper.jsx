@@ -5,6 +5,7 @@ import * as THREE from "three";
 export default function Developer({ ...props }) {
   const group = useRef();
   const [animation, setAnimation] = useState("idle");
+  const [wavePlayed, setWavePlayed] = useState(false);
   const isSystemAnimation = useRef(false);
   const modelReady = useRef(false);
 
@@ -19,7 +20,7 @@ export default function Developer({ ...props }) {
   const dyingFBX = useFBX("/animations/Dying.fbx");
   const waveFBX = useFBX("/animations/Waving.fbx");
 
-  // nastav názvy, jen pokud existují
+  // nastavení názvů, jen pokud existují
   if (idleFBX.animations[0]) idleFBX.animations[0].name = "idle";
   if (clapFBX.animations[0]) clapFBX.animations[0].name = "clap";
   if (dyingFBX.animations[0]) dyingFBX.animations[0].name = "dying";
@@ -46,10 +47,10 @@ export default function Developer({ ...props }) {
 
   useEffect(() => {
     if (!modelReady.current) return;
+    if (wavePlayed) return;
   
     const timer = setTimeout(() => {
-      if (isDead.current) return;
-  
+      setWavePlayed(true);
       isSystemAnimation.current = true;
       setAnimation("wave");
     }, 3500);
@@ -83,11 +84,12 @@ export default function Developer({ ...props }) {
     const onFinished = (e) => {
       const finished = e.action.getClip().name;
   
-      // dying má absolutní prioritu (zůstane ležet)
+      // dying má absolutní prioritu
       if (finished === "dying") return;
   
       // ===== SYSTEM ANIMATION (auto wave) =====
       if (finished === "wave" && isSystemAnimation.current) {
+        // animace wave skončila -> přepni se na animaci idle
         isSystemAnimation.current = false;
         setAnimation("idle");
         return;

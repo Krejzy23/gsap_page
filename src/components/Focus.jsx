@@ -51,10 +51,11 @@ const Focus = () => {
           ease: "none",
           scrollTrigger: {
             trigger: ".focus-title",
-            start: "center center",
+            start: "top center",
             endTrigger: ".rotator li:last-child",
-            end: "center center",
+            end: "bottom center",
             scrub: true,
+            pinType: "transform"
           },
         }
       );
@@ -86,20 +87,20 @@ const Focus = () => {
         </span>
       </div>
       {/* content */}
-      <div className="flex items-start gap-12 px-6 md:px-16 py-32">
-        <div className="indicator relative w-0.5 bg-white/10 ml-8 h-[70vh]">
+      <div className="flex items-start gap-6 md:gap-12 px-3 md:px-16 py-40">
+        <div className="indicator relative w-0.5 bg-white/10 ml-4 h-[70dvh] z-20">
           <div className="indicator-fill absolute top-0 left-0 w-full h-0 bg-[#FC2207]" />
         </div>
 
         {/* LEFT TITLE */}
           <div className="focus-title">
-            <h1 className="flex items-center justify-center font-roboto font-semibold uppercase tracking-wide leading-none text-[clamp(1.5rem,4vw,2rem)] md:text-[clamp(2.5rem,8vw,4rem)]">
+            <h1 className="flex items-center font-roboto font-semibold uppercase tracking-wide leading-none text-[clamp(1.5rem,4vw,2rem)] md:text-[clamp(2.5rem,8vw,4rem)]">
               focusing
             </h1>
           </div>
 
         {/* RIGHT ROTATOR */}
-        <ul className="rotator space-y-10 md:space-y-2">
+        <ul className="rotator space-y-8 md:space-y-2">
           {items.map((item, i) => (
             <li className="group relative" key={i}>
               <span
@@ -114,7 +115,7 @@ const Focus = () => {
               >
                 {item.text}
               </span>
-              <div className="absolute left-full ml-10 top-1/2 -translate-y-1/2 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-48"></div>
+              <div className="absolute left-full ml-6 top-1/2 -translate-y-1/2 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-48"></div>
             </li>
           ))}
         </ul>

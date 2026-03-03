@@ -48,7 +48,7 @@ const Hero = () => {
           .to(
             heading,
             {
-              y: "-25vh",
+              y: "-20vh",
               ease: "power3.out",
               duration: 1,
             },
@@ -120,7 +120,7 @@ const Hero = () => {
 
         wrapper.addEventListener("mousemove", spotlightMove);
 
-        // CLEANUP 
+        // CLEANUP
         return () => {
           wrapper.removeEventListener("mousemove", spotlightMove);
           split.revert();
@@ -140,7 +140,7 @@ const Hero = () => {
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-50"
+        className="absolute inset-0 w-full h-full object-cover opacity-60"
       >
         <source src="/video/bg-texture.mp4" type="video/mp4" />
       </video>
@@ -164,9 +164,10 @@ const Hero = () => {
       <div className="mt-32 p-10 relative z-30">
         <h1
           ref={headingRef}
-          className="text-4xl md:text-7xl lg:text-9xl font-bold font-roboto text-white/70 uppercase tracking-wide leading-[0.9]"
+          className="text-4xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-roboto text-white/70 uppercase tracking-wider leading-[0.9]"
         >
-          CO<span className="text-white/80">DE</span> <span className="text-white/90">IN</span>{" "}
+          CO<span className="text-white/80">DE</span>{" "}
+          <span className="text-white/90">IN</span>{" "}
           <span className="text-white/80">MOTI</span>ON
         </h1>
 
@@ -174,7 +175,7 @@ const Hero = () => {
           <div className="flex flex-col">
             <p
               ref={subRef}
-              className="mt-6 max-w-xl text-sm md:text-xl font-roboto text-white/80 tracking-wide opacity-0"
+              className="mt-6 max-w-xl text-sm md:text-lg lg:text-2xl font-roboto text-white/80 tracking-wide opacity-0"
             >
               Crafting immersive digital experiences
             </p>
@@ -189,7 +190,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="scroll-indicator absolute md:bottom-2 left-1/2 -translate-x-1/2 text-white/50 text-xs tracking-[0.3em] flex flex-col items-center">
+        <div className="scroll-indicator absolute -bottom-52 md:-bottom-30 left-1/2 -translate-x-1/2 text-white/50 text-xs tracking-[0.3em] flex flex-col items-center">
           SCROLL
           <img src="/pictures/arrow.svg" alt="arrow" />
         </div>
