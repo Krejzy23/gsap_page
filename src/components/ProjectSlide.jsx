@@ -2,7 +2,7 @@ import React from "react";
 import MagneticButton from "./MagneticButton";
 
 const ProjectSlide = ({ slide, index }) => {
-  const { title, img, subTitle, live, git, tech, align, theme } = slide;
+  const { title, img, subTitle, live, git, tech } = slide;
 
   return (
     <section className="project-slide absolute inset-0 h-screen w-screen flex items-center justify-center overflow-hidden bg-black">

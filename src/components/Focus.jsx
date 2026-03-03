@@ -1,21 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { items } from "../constants";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const items = [
-  { text: "FONTS", style: "font-playfair tracking-widest text-neutral-500" },
-  {
-    text: "COLORS",
-    style: "font-roboto italic tracking-tight text-neutral-500",
-  },
-  { text: "LAYOUTS", style: "font-cormorant italic text-neutral-500" },
-  { text: "ANIMATIONS", style: "font-extrabold text-stone-500" },
-  { text: "FUNCTIONS", style: "font-thin tracking-widest text-neutral-400" },
-  { text: "TRENDS", style: "font-medium text-neutral-500" },
-  { text: "FEELING", style: "font-bold text-neutral-100" },
-];
 
 const Focus = () => {
   const sectionRef = useRef();
@@ -43,16 +31,16 @@ const Focus = () => {
           },
           0
         );
-
-      ScrollTrigger.create({
-        trigger: ".focus-title",
-        start: "center center",
-        endTrigger: ".rotator li:last-child",
-        end: "center center",
-        pin: true,
-        scrub: true,
-        animation: tl,
-      });
+        ScrollTrigger.create({
+          trigger: ".focus-title",
+          start: "center center",
+          endTrigger: ".rotator li:last-child",
+          end: "center center",
+          pin: true,
+          pinType: "transform",
+          scrub: true,
+          animation: tl,
+        });
 
       // indicator
       gsap.fromTo(
@@ -104,9 +92,11 @@ const Focus = () => {
         </div>
 
         {/* LEFT TITLE */}
-        <h1 className="flex items-center focus-title font-roboto font-semibold uppercase tracking-wide leading-none text-[clamp(1.5rem,4vw,2rem)] md:text-[clamp(2.5rem,8vw,4rem)]">
-          focusing
-        </h1>
+          <div className="focus-title">
+            <h1 className="flex items-center justify-center font-roboto font-semibold uppercase tracking-wide leading-none text-[clamp(1.5rem,4vw,2rem)] md:text-[clamp(2.5rem,8vw,4rem)]">
+              focusing
+            </h1>
+          </div>
 
         {/* RIGHT ROTATOR */}
         <ul className="rotator space-y-10 md:space-y-2">
@@ -124,7 +114,7 @@ const Focus = () => {
               >
                 {item.text}
               </span>
-              <div className="absolute left-full ml-4 top-1/2 -translate-y-1/2 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-48"></div>
+              <div className="absolute left-full ml-10 top-1/2 -translate-y-1/2 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-48"></div>
             </li>
           ))}
         </ul>

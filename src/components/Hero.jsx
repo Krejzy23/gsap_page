@@ -120,7 +120,7 @@ const Hero = () => {
 
         wrapper.addEventListener("mousemove", spotlightMove);
 
-        // CLEANUP (VERY IMPORTANT)
+        // CLEANUP 
         return () => {
           wrapper.removeEventListener("mousemove", spotlightMove);
           split.revert();

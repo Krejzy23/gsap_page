@@ -68,7 +68,7 @@ const About = () => {
               interactive systems, primarily using React, WebGL and GSAP.
             </p>
 
-            <p className="text-white/50 leading-relaxed">
+            <p className="text-white/50 leading-relaxed mb-10">
               My work blends minimal design with complex visual structures. I
               focus on rhythm, clarity and intentional interaction — choosing
               the right technology is part of the design process, not the goal

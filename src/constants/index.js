@@ -41,6 +41,19 @@ export const slidesData = [
   },
 ];
 
+export const items = [
+  { text: "FONTS", style: "font-playfair tracking-widest text-neutral-500" },
+  {
+    text: "COLORS",
+    style: "font-roboto italic tracking-tight text-neutral-500",
+  },
+  { text: "LAYOUTS", style: "font-cormorant italic text-neutral-500" },
+  { text: "ANIMATIONS", style: "font-extrabold text-stone-500" },
+  { text: "FUNCTIONS", style: "font-thin tracking-widest text-neutral-400" },
+  { text: "TRENDS", style: "font-medium text-neutral-500" },
+  { text: "FEELING", style: "font-bold text-neutral-100" },
+];
+
 export const posts = [
   {
     id: 1,
