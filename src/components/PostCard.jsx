@@ -4,7 +4,7 @@ import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
 gsap.registerPlugin(ScrambleTextPlugin);
 
-export default function PostCard({ title, image, tags, slideIndex,navigate}) {
+export default function PostCard({ title, image, tags, slug, navigate}) {
   const cardRef = useRef(null);
   const titleRef = useRef(null);
 
@@ -75,7 +75,7 @@ export default function PostCard({ title, image, tags, slideIndex,navigate}) {
 
 
         <button
-          onClick={() => navigate("/projects", { state: { slideIndex } })}
+          onClick={() => navigate(`/projects/${slug}`)}
           className="border border-[#FC2207] px-2 py-1 md:px-4 md:py-2 uppercase tracking-widest text-[0.5rem] md:text-xs hover:bg-[#FC2207] hover:text-black transition cursor-pointer"
         >
           LINK

@@ -164,14 +164,14 @@ const Hero = () => {
       <div className="mt-32 p-10 relative z-30">
         <h1
           ref={headingRef}
-          className="text-4xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-roboto text-white/70 uppercase tracking-wider leading-[0.9]"
+          className="text-4xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-roboto text-white/70 uppercase tracking-wider leading-[0.9] xl:tracking-widest"
         >
           CO<span className="text-white/80">DE</span>{" "}
           <span className="text-white/90">IN</span>{" "}
           <span className="text-white/80">MOTI</span>ON
         </h1>
 
-        <div ref={revealRef} className="flex tracking-wider">
+        <div ref={revealRef} className="flex">
           <div className="flex flex-col">
             <p
               ref={subRef}

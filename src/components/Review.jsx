@@ -104,7 +104,7 @@ export default function Review() {
           </div>
 
         {/* Malé karty */}
-        {posts.map((post, index) => (
+        {posts.map((post) => (
           <div key={post.id} className="relative">
             <div className="pointer-events-none absolute -top-1 -left-1 h-5 w-5 border-l border-t border-black" />
             <div className="pointer-events-none absolute -top-1 -right-1 h-5 w-5 border-r border-t border-[#FC2207]" />
@@ -115,7 +115,7 @@ export default function Review() {
               title={post.title}
               image={post.image}
               tags={post.tags}
-              slideIndex={index}
+              slug={post.slug}
               navigate={navigate}
             />
           </div>
